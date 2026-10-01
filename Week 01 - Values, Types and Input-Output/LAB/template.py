@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  : Ian Smith
+Lane  :  IT      
+Date  :25/09/2026
 
 Run it:   python template.py
 
@@ -21,9 +21,9 @@ Delete these instructions as you replace them with your code.
 #
 #    Remember: input() always gives back text.
 
-label = ""      # : replace with an input() call
-first = 0.0     # : replace with an input() call, converted
-second = 0.0    # : replace with an input() call, converted
+label =input("Enter the label (text): ")      
+first = float(input("Enter the first number: "))     
+second = float(input("Enter the second number: "))    
 
 
 # ================================================================== PROCESS
@@ -36,7 +36,8 @@ second = 0.0    # : replace with an input() call, converted
 
 difference = 0.0   # 
 percent = 0.0      # 
-
+difference = first - second
+percent = (first / second) * 100
 
 # =================================================================== OUTPUT
 # 3. Print the report.
@@ -54,7 +55,11 @@ print(f"  RECORD CHECK  -  {label}")
 print("=" * 34)
 
 # : your report lines go here
-
+print(f"Label: {label}")
+print(f"First number: {first:>10.2f}")
+print(f"Second number: {second:>10.2f}")
+print(f"Difference: {difference:>+10.2f}")
+print(f"Percentage: {percent:>10.2f}%")
 print("=" * 34)
 
 
