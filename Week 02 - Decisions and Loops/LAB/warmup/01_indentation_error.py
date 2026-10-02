@@ -1,9 +1,8 @@
 # BROKEN ON PURPOSE.
 # Run it, read the last line, then fix it.
 
-record_id = "R-004"
+value = 23.7
+limit = 20
 
-class record_ID:
-    ...
-
-print(record_id)
+if value > limit:
+print("OVER")
