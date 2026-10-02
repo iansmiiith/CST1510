@@ -1,2 +1,11 @@
+
 Week */*
 !Week */LAB/
+
+
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+__MACOSX/
+.DS_Store
+.env
