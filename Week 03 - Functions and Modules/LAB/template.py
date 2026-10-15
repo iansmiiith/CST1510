@@ -24,7 +24,7 @@ def status_of(percent, warning_at=90):
 def check(value, limit):
     difference = limit - value
     percent = (value / limit) * 100
-    return difference, percent
+    return difference, percent # This returns the value used in the code back to the code
 
 def print_report(label, value, limit, difference, percent, status):
     print("=" * 34)
@@ -36,14 +36,17 @@ def print_report(label, value, limit, difference, percent, status):
     print(f"{'percent':<10}: {percent:.1f}%")
     print(f"{'status':<10}: {status}")
     print("=" * 34)
-
+# The functions above calculate the percentage and difference of the numbers entered by the user
 # ==================================================================== INPUT
 label = input("Enter hostname: ")      
 value = float(input("Enter GB used: "))   
 limit = float(input("Enter GB total: "))   
+# This part of the code enables the user to enter custom values
 # ================================================================== PROCESS
 difference, percent = check(value, limit)
-status = status_of(percent)        
+status = status_of(percent)    
+# This function assigns values to specific lists    
 # =================================================================== OUTPUT
 if __name__ == "__main__":
     print_report(label, value, limit, difference, percent, status)
+# This function prints out the output made by the user

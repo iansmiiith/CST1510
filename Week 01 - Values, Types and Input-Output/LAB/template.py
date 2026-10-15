@@ -18,7 +18,7 @@ Delete these instructions as you replace them with your code.
 label =input("Enter the label (text): ")      
 first = float(input("Enter the first number: "))     
 second = float(input("Enter the second number: "))    
-
+# This displays the input data where one has to enter a specific number or word
 
 # ================================================================== PROCESS
 
@@ -27,7 +27,7 @@ difference = 0.0   #
 percent = 0.0      # 
 difference = first - second
 percent = (first / second) * 100
-
+# This calculates the numbers entered from the first area of the code
 # =================================================================== OUTPUT
 
 print()
@@ -42,5 +42,5 @@ print(f"Second number: {second:>10.2f}")
 print(f"Difference: {difference:>+10.2f}")
 print(f"Percentage: {percent:>10.2f}%")
 print("=" * 34)
-
+# This prints the output of the code above
 
