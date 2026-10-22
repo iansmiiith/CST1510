@@ -1,0 +1,9 @@
+import random
+def randomlist(length):
+    randlist = []
+    for i in range(1,length+1):
+        n = random.randint(1,10)
+        randlist.append(n)
+    return randlist
+r = randomlist(6)
+print(r)
