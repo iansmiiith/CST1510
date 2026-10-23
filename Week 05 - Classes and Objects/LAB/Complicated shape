@@ -1,0 +1,18 @@
+import turtle
+import math
+
+t = turtle.Turtle()
+t.speed(0)
+
+side_length = 150
+angle = 10
+
+for i in range(30):
+    for _ in range(4):
+        t.forward(side_length)
+        t.right(90)
+
+    t.right(angle)
+
+    side_length = side_length*0.97
+turtle.done()
