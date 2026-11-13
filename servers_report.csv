@@ -1,0 +1,6 @@
+hostname,used_gb,total_gb,percent,status
+srv-01,87,120,72.5,OK
+srv-02,115,120,95.83333333333334,WARNING
+srv-03,40,100,40.0,OK
+srv-04,98,100,98.0,WARNING
+srv-05,200,250,80.0,OK

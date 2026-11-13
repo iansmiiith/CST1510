@@ -33,6 +33,15 @@ else ("WARNING" if x >= 90 else "OK")
 )
 
 # ================================================================== OUTPUT
+import matplotlib.pyplot as plt 
+
+print(df.describe())
+
+df.to_csv("servers_report.csv", index=False)
+
+df["status"].value_counts().plot(kind="bar", title="Servers by status")
+plt.tight_layout()
+plt.show()
 print("=== Full DataFrame ===")
 # I am doing the typical which says that I should filter it to show only rows that are not "OK".
 # Using != (not equal to) to filter
