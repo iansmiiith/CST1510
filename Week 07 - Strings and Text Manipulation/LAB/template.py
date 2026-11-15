@@ -2,58 +2,67 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  : Ian Smith Ochieng
+Lane  : IT      
+Date  : 15/11/2026
 
 Run it:   python template.py
-
-Work through the numbered sections in order. Each one tells you what it must do.
-Delete these instructions as you replace them with your code.
 """
 
 # =================================================================== FUNCTIONS
 # 1. Write parse_line(raw_line) that cleans and parses one raw, messy line
-#    into a dict. Handle inconsistent spacing and case - that is the whole
-#    point of this week.
-#
-#    Typical and above: also write status_of(...), shaped for your lane
-#    (e.g. OVER LIMIT / WARNING / OK, or FLAGGED / OK). Give both a
-#    one-line docstring.
-
-# your function(s) go here
-
+def parse_line(raw_line):
+    #parses a raw IT record string into a clean dictionary.
+    # remove extra spaces and split by the comma
+    parts = raw_line.strip().split(',')
+    clean_dict = {}
+    for part in parts:
+        # Split each part with '=' to separate key and value
+        if '=' in part:
+            key, value = part.split('=')
+        # clean up spaces and make keys lowercase for consistency
+            clean_key = key.strip().lower()
+            clean_value = value.strip()
+        # Try to convert numeric values(like'87') to integers
+            if clean_value.isdigit():
+                clean_dict[clean_key] = int(clean_value)
+            else:
+                clean_dict[clean_key] = clean_value
+    return clean_dict
+    # Typical and above
+def status_of(parsed_record):
+        # Returns 'WARNING' if used is over 80% of total, else 'OK'.
+        used = parsed_record.get('used', 0)
+        total = parsed_record.get('total', 100)
+        if used > (total * 0.8):
+            return 'WARNING'
+        else:
+            return 'OK"'
 
 # ====================================================================== INPUT
 # 2. Your raw, messy records - at least 5, deliberately varied in spacing
-#    and case. Match the shape to your lane:
-#
-#    AI / Data Science : "  Survey_2026 , rating=4 , age=23  "
-#    Cyber Security     : "SRC=10.0.0.5,ATTEMPTS=12,RESULT=FAILED"
-#    IT                  : "  Srv-01 , used=87 , total=100  "
-#
-#    Excellent: save these lines to a file and load them with open() /
-#    a for loop over the file, instead of writing them directly here.
-
-raw_records = []   # replace with your code
-
+raw_records = [
+    "Srv-01, used=87, total=100", # Will trigger WARNING
+    "SRV-02, USED=45, TOTAL=200", # Extra spaces, uppercase
+    "Srv-03,used=95, total=100", # No spaces
+    "Srv-04, used=12, total=50", # Will be OK
+    "Srv-05 , Used=88 , Total=100 " # Mixed cases and spaces
+]
 
 # =============================================================== PROCESS + OUTPUT
 # 3. Parse and report on every record.
-#
-#    Threshold : parse each record, print the cleaned dict.
-#    Typical   : also call status_of(...) for each, print it alongside.
-#    Excellent : print a one-line summary at the end - how many records,
-#                how many flagged.
-
+total_records = 0
+flagged_count = 0
 for raw_record in raw_records:
-    pass   # replace with your code
+    # Clean the data
+    cleaned = parse_line(raw_record)
+    # Check status
+    status = status_of(cleaned)
+    # Update counters for the final summary
+    total_records += 1
+    # Print the cleaned dict alongside its status
+    print(f"Data: {cleaned} | Status: {status}")
+print("\n----------------------------------------")
+# Print the one-line summary (Excellent requirement)
+print(f"Summary: Processed {total_records} records, {flagged_count} flagged.")
 
-
-# ==========================================================================
-# 4. Before you finish:
-#
-#    [ ] Run it against at least 5 genuinely messy raw records
-#    [ ] Run it with a value that will not convert to a number - write the
-#        error down
-#    [ ] Check every function does one job, with a docstring

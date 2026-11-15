@@ -1,0 +1,4 @@
+srv-10:us-east:50:100
+srv-11:us-east:105:100
+srv-12 :us-east:85:100
+srv-13:us-east:0:100
